@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import dataTestIds from '../utils/dataTestIds';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -26,8 +27,9 @@ export default function LoginForm() {
         <label htmlFor="loginInput">
           Login
           <input
-            className="input"
             id="loginInput"
+            data-testid={ dataTestIds['1'] }
+            className="input"
             type="email"
             placeholder="email@trybeer.com.br"
             onChange={ ({ target: { value } }) => setEmail(value) }
@@ -39,8 +41,9 @@ export default function LoginForm() {
         <label htmlFor="passwordInput">
           Senha
           <input
-            className="input"
             id="passwordInput"
+            className="input"
+            data-testid={ dataTestIds['2'] }
             type="password"
             placeholder="******"
             onChange={ ({ target: { value } }) => setPassword(value) }
@@ -50,9 +53,10 @@ export default function LoginForm() {
       </div>
       <div className="buttons">
         <button
-          type="button"
-          className="button is-success"
           id="loginButton"
+          data-testid={ dataTestIds['3'] }
+          className="button is-success"
+          type="button"
           disabled={ checkInputs() }
           onClick={ handleButtonClick }
         >
@@ -64,9 +68,10 @@ export default function LoginForm() {
           to="/register"
         >
           <button
-            type="button"
-            className="button is-ghost"
             id="newUserBtn"
+            data-testid={ dataTestIds['4'] }
+            className="button is-ghost"
+            type="button"
           >
             Ainda não tenho conta
           </button>
